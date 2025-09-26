@@ -18,3 +18,5 @@ bcrypt
 
 # Optional: for data validation
 pydantic
+
+qrcode[pil]
