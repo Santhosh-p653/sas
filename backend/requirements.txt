@@ -1,0 +1,20 @@
+# PostgreSQL connector
+psycopg2-binary
+
+# Load environment variables from .env
+python-dotenv
+
+# Web framework (Flask) – optional if you plan APIs
+Flask
+
+# Handle CORS if frontend calls backend
+Flask-CORS
+
+# JSON handling and utilities (usually built-in, but include if needed)
+requests
+
+# Optional: for password hashing / security
+bcrypt
+
+# Optional: for data validation
+pydantic
