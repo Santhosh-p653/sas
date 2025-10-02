@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login - SAS</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h2>Login</h2>
+
+  <!-- Flash messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" action="/login">
+    <label>Role:</label>
+    <select name="role" id="role" onchange="toggleFields()">
+      <option value="student">Student</option>
+      <option value="teacher">Teacher</option>
+      <option value="admin">Admin</option>
+      <option value="auditor">Auditor</option>
+    </select><br>
+
+    <div id="userFields" style="display:none;">
+      <label>Username:</label>
+      <input type="text" name="username"><br>
+
+      <label>Password:</label>
+      <input type="password" name="password"><br>
+    </div>
+
+    <button type="submit">Login</button>
+  </form>
+  <a href="/">Back</a>
+
+  <script>
+    function toggleFields() {
+      const role = document.getElementById("role").value;
+      const userFields = document.getElementById("userFields");
+      if (role === "teacher" || role === "admin" || role === "auditor") {
+        userFields.style.display = "block";
+      } else {
+        userFields.style.display = "none";
+      }
+    }
+    toggleFields();
+  </script>
+</body>
+</html>
